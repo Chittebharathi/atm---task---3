@@ -1,24 +1,26 @@
 import java.util.Scanner;
-public class atm {
+public class Atm {
     public static void main(String[] args) {
-
-        int pin = 1015;
-        int balance = 10000;
+        int pin = 1015; 
+        int balance = 200000; 
         int withdraw=0;
         int deposit=0;
-        Scanner sc =new Scanner(System.in);
-
-        System.out.println("pin: ");
+        int transferamount=0;
+        int accountnumber;
+        Scanner sc =new Scanner(System.in); 
+        System.out.println("Welcome to the sbi bank \n");
+        System.out.println("Please enter your A.T.M pin: "); //asking to enter the pin
         pin =sc.nextInt();
-        if(pin == 1015 ){
+        if(pin == 1015 ){                
             while(true) {
-                System.out.println("A.T.M");
-                System.out.println("Choose 1 for withdraw");
-                System.out.println("Choose 2 for deposit");
-                System.out.println("Choose 3 for Check balance");
-                System.out.println("Choose 4 for receipt");
-                System.out.println("Choose 5 for exit()");
-                System.out.println("Choose the operation what you need");
+                System.out.println("sbi bank  A.T.M");
+                System.out.println("Enter the required option you want \n");  // asking user to choose required opearation
+                System.out.println("Select option 1 for withdraw");
+                System.out.println("Select option 2 for deposit");
+                System.out.println("Select option 3 for Check balance");
+                System.out.println("Select option 4 for Transfer Amount");
+                System.out.println("Select option 5 for receipt");
+                System.out.println("Select option 6 for exit()");
                 int n =sc.nextInt();
                 switch (n) {
                 case 1 :
@@ -34,7 +36,7 @@ public class atm {
                     }
                     
     
-                case 2 :
+                case 2 :                                                       
                     System.out.println("Enter money to be deposit");
                     deposit=sc.nextInt();
                     balance=balance+deposit;
@@ -42,21 +44,40 @@ public class atm {
                     System.out.println(" ");
                     break;
     
-                case 3 :
-                    System.out.println("Balance : "+balance);
+                case 3 :                                                        
+                    System.out.println(" Available Balance : "+balance);
                     System.out.println(" ");
                     break;
+
+                case 4:                                                  
+                    System.out.println("Welcome to sbi bank");
+                    System.out.println("Enter the IFSC code: ");
+                    String ifsc = sc.next();
+                    System.out.println("Entered IFSC code is:"+ifsc);
+                    System.out.println("Enter the Bank Account Number:");
+                    accountnumber=sc.nextInt();
+                    System.out.println("Entered Bank Account Number:"+accountnumber);
+                    System.out.println("Enter the amount to be tranfer:");
+                    transferamount=sc.nextInt();
+                    System.out.println("your amount "+transferamount+" is successfully transfered to the account number"+ accountnumber);
+                    balance=balance-transferamount;
+                    System.out.println("Available Balance:"+balance);   
+                    
+                    break;
     
-                case 4 :
-                    System.out.println("Welcome to ATM ");
+                case 5 :                                                        
+                    System.out.println("Welcome to sbi bank ATM ");
                     System.out.println("deposited amount"+deposit);
                     System.out.println("withdrwan amount"+withdraw);
                     System.out.println("Available balance"+balance);
+                    System.out.println("Transfered Amount"+transferamount);
                     System.out.println("Thanks for Coming...");
                     System.out.println("Visit again");
                     break;
-                case 5:
+                case 6:
+                    System.out.println("sbi bank A.T.M");
                     System.out.println("Thanks for coming...");
+                    System.out.println("Visit Again");
                     System.exit(0);
                     
                 }
@@ -64,7 +85,11 @@ public class atm {
 
         }
         else {
-                System.out.println("Enter the correct pin");
+                System.out.println("Enter the correct pin and retry");
+               
+                
+
+
         }
 
         
